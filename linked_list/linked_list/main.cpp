@@ -87,6 +87,26 @@ public:
 
     }
 
+    //Method to append new value in the linked list
+    void append(int newValue){
+
+        //chek if linked list is empty
+        if(isEmpty()){
+            //Add new Value as a first item in the list
+            insertFirst(newValue);
+        }else{
+            Node* temp =head;
+            while(temp->next != NULL){
+                temp = temp->next;
+            }
+            Node* newNode = new Node();
+            newNode->data = newValue;
+            temp->next = newNode;
+            newNode->next = NULL;
+            }
+
+    }
+
 };
 
 
@@ -132,5 +152,14 @@ int main()
 
     cout << "After insert the new Item after specific position:\n";
 
+     lst.display();
+
+     cout << "Append New Item to the end of the list:\n";
+
+     cin >> item;
+
+     lst.append(item);
+
+     cout << "After Append\n";
      lst.display();
 }
