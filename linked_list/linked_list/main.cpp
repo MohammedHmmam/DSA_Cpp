@@ -11,7 +11,7 @@ public:
 
 class LinkedList{
 public:
-    Node *head;
+    Node* head;
     LinkedList(){
         head = NULL;
     }
@@ -24,12 +24,13 @@ public:
     //function to insert item in the first position in the linked list
     void insertFirst(int newValue){
         if(isEmpty()){
-            Node *newNode;
+            Node* newNode = new Node();
             newNode->data = newValue;
             newNode->next = NULL;
             head = newNode;
+
         }else{
-            Node *newNode;
+            Node* newNode = new Node();
             newNode->data = newValue;
             newNode->next = head;
             head = newNode;
@@ -39,9 +40,9 @@ public:
 
     //Function to display linked List Items
     void display(){
-        Node * temp = head;
+        Node* temp = head;
         while(temp != NULL){
-            cout << temp->data;
+            cout << temp->data << "\n";
             temp = temp->next;
         }
     }
@@ -50,7 +51,7 @@ public:
     int count(){
 
         int counter = 0;
-        Node *temp = head;
+        Node* temp = head;
         while(temp != NULL){
             counter ++;
             temp = temp->next;
@@ -64,11 +65,26 @@ public:
         Node *temp = head;
         while(temp!=NULL){
             if(temp->data == key){
-                fount = true;
+                found = true;
             }
             temp = temp->next;
         }
         return found;
+    }
+
+    //Method to insert Value before specific item
+    void insertBefore(int item, int newValue){
+        Node* newNode = new Node();
+        newNode->data = newValue;
+
+        Node* temp = head;
+
+        while(temp->next !=NULL && temp->next->data != item){
+            temp = temp->next;
+        }
+        newNode->next = temp->next;
+        temp->next = newNode;
+
     }
 
 };
@@ -76,6 +92,45 @@ public:
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+
+    LinkedList lst;
+
+    int item;
+    cout<< "Inter new item:\n";
+    cin >> item;
+    lst.insertFirst(item);
+
+    cout << "Linked List After Add the last item :\n";
+    lst.display();
+        cout<< "Inter new item:\n";
+    cin >> item;
+    lst.insertFirst(item);
+
+    cout << "Linked List After Add the last item :\n";
+    lst.display();
+        cout<< "Inter new item:\n";
+    cin >> item;
+    lst.insertFirst(item);
+
+    cout << "Linked List After Add the last item :\n";
+    lst.display();
+        cout<< "Inter new item:\n";
+    cin >> item;
+    lst.insertFirst(item);
+
+    cout << "Linked List After Add the last item :\n";
+    lst.display();
+
+    cout << "Enter The Position to insert New Value after it: \n";
+    cin >> item;
+    int newValue;
+
+    cout << "Enter New Value:\n";
+    cin >> newValue;
+
+    lst.insertBefore(item,newValue);
+
+    cout << "After insert the new Item after specific position:\n";
+
+     lst.display();
 }
