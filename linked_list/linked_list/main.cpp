@@ -107,6 +107,32 @@ public:
 
     }
 
+    //Method to Delete specific item from list
+    void deleteItem(int item){
+
+        //check if list empty
+        if(isEmpty())
+            cout<< "List is Empty\n";
+
+        Node* delPtr = head;
+        //check if Item was the first Item in the list
+        if(head->data == item){
+            head = head->next;
+            delete delPtr;
+        }else{
+
+            Node* prev = NULL;
+            delPtr = head;
+            while(delPtr->data != item){
+                prev = delPtr;
+                delPtr = delPtr->next;
+
+            }
+            prev->next = delPtr->next;
+            delete delPtr;
+        }
+    }
+
 };
 
 
@@ -161,5 +187,13 @@ int main()
      lst.append(item);
 
      cout << "After Append\n";
+     lst.display();
+
+     cout << "E Enter the item you would like to Delete It:\n";
+
+     cin >> item;
+
+     lst.deleteItem(item);
+     cout << "List After Delete: (" << item << ") From the list:\n";
      lst.display();
 }
