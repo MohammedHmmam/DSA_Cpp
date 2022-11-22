@@ -26,6 +26,7 @@ public:
         top = NULL;
     }
 
+    //Check if stack is empty
     bool isEmpty(){
         if(top == NULL){
             return true;
@@ -34,10 +35,24 @@ public:
         }
     }
 
+    //Push new item to the top of the stack
+    void push(int item){
+        if(isEmpty()){
+            Node* newNode = new Node();
+            newNode->data = item;
+            newNode->next = NULL;
+            top = newNode;
+        }else{
+            Node* newNode = new Node();
+            newNode->data = item;
+            newNode->next = top;
+            top = newNode;
+        }
+    }
+
 };
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+
 }
