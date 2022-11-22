@@ -70,6 +70,11 @@ public:
         return value;
     }
 
+    //peek() method to return the top item in the stack
+    int peek(){
+        return top->data;
+    }
+
 };
 
 int main()
