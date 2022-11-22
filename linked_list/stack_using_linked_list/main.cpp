@@ -50,6 +50,16 @@ public:
         }
     }
 
+    //display method to display stack items
+    void display(){
+        Node* temp = new Node();
+        while(temp!= NULL){
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
 };
 
 int main()
