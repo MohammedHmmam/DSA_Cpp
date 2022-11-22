@@ -15,7 +15,19 @@ public:
 
 };
 
+//Stack Class
+class Stack{
 
+Node* top;
+
+public:
+    //Constructor
+    Stack(){
+        top = NULL;
+    }
+
+
+};
 
 int main()
 {
