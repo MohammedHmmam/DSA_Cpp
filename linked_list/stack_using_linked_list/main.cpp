@@ -75,6 +75,18 @@ public:
         return top->data;
     }
 
+
+    //Create count method to return the items count
+    int count(){
+        int counter = 0;
+        Node* temp = top;
+        while(temp!= NULL){
+            counter++;
+            temp = temp->next;
+        }
+        return counter;
+    }
+
 };
 
 int main()
