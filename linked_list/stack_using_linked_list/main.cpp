@@ -87,6 +87,20 @@ public:
         return counter;
     }
 
+    //isFound() Method to search for specific item in the stack
+    bool isFound(int item){
+        bool found = false;
+        Node* temp = top;
+        while(temp != NULL){
+            if(top->data == item){
+                found = true;
+            }else{
+                temp = temp->next;
+            }
+        }
+        return found;
+    }
+
 };
 
 int main()
