@@ -60,6 +60,16 @@ public:
         cout << endl;
     }
 
+    //pop() Method to remove the top item in the stack and returb it
+    int pop(){
+        int value;
+        Node* delptr = top;
+        value = top->data;
+        top = top->next;
+        delete delptr;
+        return value;
+    }
+
 };
 
 int main()
