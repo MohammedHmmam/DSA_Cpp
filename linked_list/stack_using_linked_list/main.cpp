@@ -26,6 +26,13 @@ public:
         top = NULL;
     }
 
+    bool isEmpty(){
+        if(top == NULL){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 };
 
